@@ -38,7 +38,7 @@ export const useGsapAnimationOpacity = (
       },
       delay: delayN ? delayN : 0,
       opacity: 1,
-      ease: "none",
+      ease: "linear",
       duration: 1,
     });
     animationsArrGsap.push(animation);

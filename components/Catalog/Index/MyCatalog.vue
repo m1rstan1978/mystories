@@ -33,40 +33,191 @@ export default {
         name: "платье",
         price: "4 800",
         sale: "5 200",
-        imageSrc: "../Primer/catalog1.png",
+        images: [
+          {
+            imageSrc: "../Primer/catalog1.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog2.png",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+
+          {
+            imageSrc: "../Primer/catalog5.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+
+          {
+            imageSrc: "../Primer/catalog5.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+
+          {
+            imageSrc: "../Primer/catalog5.webp",
+          },
+        ],
       },
       {
         name: "сарафан",
         price: "2 800",
-        imageSrc: "../Primer/catalog1.png",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
+      },
+
+      {
+        name: "сарафан",
+        price: "2 800",
+        images: [
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog11.webp",
+          },
+        ],
       },
       {
         name: "сарочка",
         price: "7 800",
-        imageSrc: "../Primer/catalog2.png",
+        images: [
+          {
+            imageSrc: "../Primer/catalog7.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog2.png",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+        ],
       },
       {
         name: "платье",
         price: "1 800",
-        imageSrc: "../Primer/catalog2.png",
+        images: [
+          {
+            imageSrc: "../Primer/catalog13.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog2.png",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+        ],
       },
       {
         name: "кофта",
         price: "9 800",
         sale: "5 200",
-        imageSrc: "../Primer/catalog2.png",
-      },
-      {
-        name: "кофта",
-        price: "9 800",
-        sale: "5 200",
-        imageSrc: "../Primer/catalog2.png",
-      },
-      {
-        name: "кофта",
-        price: "9 800",
-        sale: "5 200",
-        imageSrc: "../Primer/catalog2.png",
+        images: [
+          {
+            imageSrc: "../Primer/catalog9.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog2.png",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+
+          {
+            imageSrc: "../Primer/catalog5.webp",
+          },
+          {
+            imageSrc: "../Primer/catalog3.webp",
+          },
+
+          {
+            imageSrc: "../Primer/catalog5.webp",
+          },
+        ],
       },
     ];
   },
@@ -83,5 +234,6 @@ export default {
   column-gap: 10px;
   row-gap: 65px;
   margin-bottom: 40px;
+  min-height: 900px;
 }
 </style>

@@ -28,28 +28,104 @@ export default {
           name: "платье",
           price: "4 800",
           sale: "5 200",
-          imageSrc: "../Primer/новинки1.png",
+          images: [
+            {
+              imageSrc: "../Primer/catalog1.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog2.png",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+
+            {
+              imageSrc: "../Primer/catalog5.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+
+            {
+              imageSrc: "../Primer/catalog5.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+
+            {
+              imageSrc: "../Primer/catalog5.webp",
+            },
+          ],
         },
         {
           name: "сарафан",
           price: "2 800",
-          imageSrc: "../Primer/новинки2.png",
+          images: [
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog11.webp",
+            },
+          ],
         },
         {
           name: "сарочка",
           price: "7 800",
-          imageSrc: "../Primer/новинки3.png",
+          images: [
+            {
+              imageSrc: "../Primer/catalog7.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog2.png",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+          ],
         },
         {
           name: "платье",
           price: "1 800",
-          imageSrc: "../Primer/новинки3.png",
+          images: [
+            {
+              imageSrc: "../Primer/catalog13.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog2.png",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+          ],
         },
         {
           name: "кофта",
           price: "9 800",
           sale: "5 200",
-          imageSrc: "../Primer/новинки3.png",
+          images: [
+            {
+              imageSrc: "../Primer/catalog9.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog2.png",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+
+            {
+              imageSrc: "../Primer/catalog5.webp",
+            },
+            {
+              imageSrc: "../Primer/catalog3.webp",
+            },
+
+            {
+              imageSrc: "../Primer/catalog5.webp",
+            },
+          ],
         },
       ],
       arrAnimationOpacityGsap: [],
