@@ -35,7 +35,7 @@ export default {
 
 <style>
 * {
-  cursor: none;
+  cursor: none !important;
 }
 button {
   cursor: none;
