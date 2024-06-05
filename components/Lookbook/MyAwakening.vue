@@ -61,13 +61,24 @@ export default {
           ".awakening__about_title",
           ".awakening__about_text",
           ".awakening__image_number",
-          ".awakening__photo",
         ],
         ".awakening",
         true
       );
       this.useGsapAnimationOpacity(
-        [".awakening__image_photo", ".awakening__about_btn"],
+        [".awakening__image_photo"],
+        ".awakening",
+        true,
+        0.5
+      );
+      this.useGsapAnimationOpacity(
+        [".awakening__photo"],
+        ".awakening",
+        true,
+        0.7
+      );
+      this.useGsapAnimationOpacity(
+        [".awakening__about_btn"],
         ".awakening__image_photo",
         true
       );

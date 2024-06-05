@@ -66,11 +66,6 @@ export default {
           `.new__item_prices${idx + 1}`
         );
       });
-      this.arrAnimationOpacityGsap = [
-        ...this.arrAnimationOpacityGsap,
-        ".new__title",
-        ".new__number",
-      ];
       this.arrAnimationGsapPrices.push(".new__btn");
     },
   },
@@ -78,8 +73,11 @@ export default {
     this.initAnimationArr();
     this.useGsapAnimationOpacity(
       this.arrAnimationOpacityGsap,
-      ".new__item_content"
+      ".new",
+      false,
+      0.4
     );
+    this.useGsapAnimationOpacity([".new__title", ".new__number"], ".new");
     this.useGsapAnimationOpacity(
       this.arrAnimationGsapPrices,
       ".new__item_name1",

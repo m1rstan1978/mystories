@@ -6,7 +6,6 @@
           <div class="main__about_information">
             <div class="main__about_header">
               <h1 class="main__about_title">( &nbsp;оплата&nbsp; )</h1>
-              <div class="main__about_number">( &nbsp;1&nbsp; )</div>
             </div>
             <p class="main__about_payment main__text">
               Вы можете оплатить заказ:
@@ -32,17 +31,20 @@
           </div>
           <div class="main__about_images">
             <h2 class="main__about_back">( &nbsp;возврат&nbsp; )</h2>
-            <div class="main__about_content">
-              <div class="main__about_num">( &nbsp;3&nbsp; )</div>
-              <div class="main__about_image">
-                <img
-                  class="main__about_photo"
-                  src="@/assets/images/Delivery/delivery1.webp"
-                  alt="Фотография"
-                  onmousedown="return false"
-                  onselectstart="return false"
-                />
-              </div>
+          </div>
+        </div>
+        <div class="main__center">
+          <div class="main__center_number">( &nbsp;1&nbsp; )</div>
+          <div class="main__center_block">
+            <div class="main__center_num">( &nbsp;3&nbsp; )</div>
+            <div class="main__center_image">
+              <img
+                class="main__center_photo"
+                src="@/assets/images/Delivery/delivery1.webp"
+                alt="Фотография"
+                onmousedown="return false"
+                onselectstart="return false"
+              />
             </div>
           </div>
         </div>
@@ -85,7 +87,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      useGsapAnimationOpacity: useGsapAnimationOpacity,
+    };
+  },
+  mounted() {
+    this.useGsapAnimationOpacity(
+      [
+        ".main__center_number",
+        ".main__center_num",
+        ".main__about_title",
+        ".main__text",
+        ".main__about_back",
+        ".main__delivery_title",
+        ".main__delivery_number",
+      ],
+      ".main"
+    );
+    this.useGsapAnimationOpacity([".main__center_image"], ".main", false, 0.5);
+  },
+};
 </script>
 
 <style scoped>
@@ -105,7 +128,8 @@ export default {};
   margin: 0 auto;
   padding: 0 30px;
   display: grid;
-  grid-template-columns: repeat(2, 55.2% 45%);
+  grid-template-columns: repeat(3, 26.1% 29.1% 44.8%);
+  min-height: 450px;
 }
 
 .main__about {
@@ -122,13 +146,15 @@ export default {};
   font-weight: 500;
   font-size: 36px;
   color: var(--brown);
+  opacity: 0;
   /* opacity: 0; */
 }
-.main__about_number {
+.main__center_number {
   font-weight: 500;
   font-size: 36px;
   color: var(--brown);
-  margin-left: 170px;
+  opacity: 0;
+  /* margin-left: 170px; */
   /* margin-bottom: 50px;
   opacity: 0; */
 }
@@ -138,8 +164,29 @@ export default {};
   line-height: 140%;
   color: var(--brown);
   text-transform: lowercase;
+  text-align: justify;
+  opacity: 0;
   /* margin-bottom: 75px;
   opacity: 0; */
+}
+.main__center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main__center_block {
+  display: flex;
+  align-items: flex-end;
+}
+.main__center_image {
+  margin-left: 35px;
+  opacity: 0;
+}
+.main__center_num {
+  font-weight: 500;
+  font-size: 36px;
+  color: var(--brown);
+  opacity: 0;
 }
 .main__about_ul {
   margin-bottom: 15px;
@@ -160,6 +207,7 @@ export default {};
   font-weight: 500;
   font-size: 36px;
   color: var(--brown);
+  opacity: 0;
 }
 .main__about_content {
   display: flex;
@@ -193,12 +241,14 @@ export default {};
   font-weight: 500;
   font-size: 36px;
   color: var(--brown);
+  opacity: 0;
 }
 .main__delivery_number {
   font-weight: 500;
   font-size: 36px;
   color: var(--brown);
   transform: translateX(9px);
+  opacity: 0;
 }
 .main__delivery_ul {
   margin-bottom: 15px;
@@ -206,5 +256,6 @@ export default {};
 .main__delivery_li {
   list-style-type: circle;
   margin-left: 20px;
+  text-align: justify;
 }
 </style>

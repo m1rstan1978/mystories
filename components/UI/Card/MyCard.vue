@@ -1,10 +1,10 @@
 <template>
-  <div class="new__item">
-    <div class="new__item_content">
-      <div class="new__item_image" :class="['new__item_image' + (idx + 1)]">
-        <div class="new__item_photo" cursor-class="animateCursor">
+  <div class="card">
+    <div class="card__content">
+      <div class="card__image" :class="['card__image' + (idx + 1)]">
+        <div class="card__photo" cursor-class="animateCursor">
           <div
-            class="new__item_texture"
+            class="card__texture"
             v-for="item in arrNewStyleTexture"
             :key="item"
             :style="{
@@ -15,20 +15,20 @@
             sale
           </div>
           <img
-            width="451"
-            height="578"
-            class="new__item_img"
+            width="490"
+            height="665"
+            class="card__img"
             :src="item.imageSrc"
             alt="Новинки"
           />
         </div>
       </div>
-      <h3 class="new__item_name" :class="['new__item_name' + (idx + 1)]">
+      <h3 class="card__name" :class="['card__name' + (idx + 1)]">
         {{ item.name }}
       </h3>
-      <div class="new__item_prices" :class="['new__item_prices' + (idx + 1)]">
-        <div class="new__item_price">{{ item.price }} ₽</div>
-        <div class="new__item_sale" v-if="item?.sale">{{ item.sale }} ₽</div>
+      <div class="card__prices" :class="['card__prices' + (idx + 1)]">
+        <div class="card__price">{{ item.price }} ₽</div>
+        <div class="card__sale" v-if="item?.sale">{{ item.sale }} ₽</div>
       </div>
     </div>
   </div>
@@ -63,63 +63,54 @@ export default {
 </script>
 
 <style scoped>
-.new__item_image {
+.card {
+  position: relative;
+}
+.card__image {
   position: relative;
   margin-bottom: 15px;
   height: 100%;
-  opacity: 0;
   overflow: hidden;
 }
-.new__item_photo {
+.card__photo {
   position: relative;
-  width: 451px;
-  height: 578px;
   overflow: hidden;
 }
-.new__item_img {
+.card__img {
   position: relative;
-  height: 100%;
+  width: 100%;
   object-fit: cover;
+  width: 490px;
+  height: 665px;
   transition: all 0.4s ease;
   z-index: 5;
 }
-.new__item_img:hover {
+.card__img:hover {
   transform: scale(1.05);
 }
-.new__item_texture {
+.card__texture {
   position: absolute;
   font-weight: 300;
   font-size: 24px;
   color: var(--yellow);
   z-index: 6;
 }
-/* .new__item_texture {
-  position: absolute;
-  top: 10%;
-  left: 20%;
-  width: 100%;
-  height: 100%;
-  background: url("@/assets/images/Main/textureSale.svg");
-  z-index: 6;
-} */
-.new__item_name {
+.card__name {
   font-weight: 400;
   font-size: 22px;
   color: var(--brown);
   margin-bottom: 20px;
-  opacity: 0;
 }
-.new__item_prices {
+.card__prices {
   display: flex;
   align-items: center;
-  opacity: 0;
 }
-.new__item_price {
+.card__price {
   font-weight: 400;
   font-size: 20px;
   color: var(--brown);
 }
-.new__item_sale {
+.card__sale {
   font-weight: 400;
   font-size: 20px;
   color: var(--brown);

@@ -52,7 +52,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      useGsapAnimationOpacity: useGsapAnimationOpacity,
+    };
+  },
+  mounted() {
+    this.useGsapAnimationOpacity(
+      [
+        ".main__about_block",
+        ".main__about_mess",
+        ".main__about_title",
+        ".main__about_text",
+      ],
+      ".main"
+    );
+    this.useGsapAnimationOpacity([".main__image"], ".about", false, 0.5);
+  },
+};
 </script>
 
 <style scoped>
@@ -74,6 +92,9 @@ export default {};
   min-height: 600px;
   max-height: 600px;
 }
+.main__image {
+  opacity: 0;
+}
 .main__image_img {
   width: 100%;
 }
@@ -91,6 +112,7 @@ export default {};
   font-size: 36px;
   color: var(--brown);
   margin-bottom: 40px;
+  opacity: 0;
 }
 .main__about_text {
   font-size: 17px;
@@ -99,11 +121,13 @@ export default {};
   color: var(--brown);
   text-transform: lowercase;
   max-width: 530px;
+  opacity: 0;
 }
 .main__about_mess {
   display: flex;
   align-items: center;
   margin-bottom: 50px;
+  opacity: 0;
 }
 .main__about_link:nth-child(2) {
   margin-left: 110px;
@@ -118,6 +142,7 @@ export default {};
 }
 .main__about_block {
   display: flex;
+  opacity: 0;
 }
 .main__about_text:nth-child(1) {
   margin-bottom: 5px;

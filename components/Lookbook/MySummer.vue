@@ -54,11 +54,9 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      this.useGsapAnimationOpacity(
-        [".summer__about_number", ".summer__img", ".summer__sm"],
-        ".summer",
-        true
-      );
+      this.useGsapAnimationOpacity([".summer__about_number"], ".summer", true);
+      this.useGsapAnimationOpacity([".summer__img"], ".summer", true, 0.5);
+      this.useGsapAnimationOpacity([".summer__sm"], ".summer", true, 0.7);
       this.useGsapAnimationOpacity(
         [".summer__about_title", ".summer__about_text"],
         ".summer__about_text",

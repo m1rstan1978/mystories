@@ -35,6 +35,7 @@
           </div>
         </div>
       </div>
+      <div class="about__block"></div>
       <div class="about__calc">
         <p class="about__calc_text about__text">
           Для расчета стоимости, сроков и условиях доставки в другие страны,
@@ -61,7 +62,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      useGsapAnimationOpacity: useGsapAnimationOpacity,
+    };
+  },
+  mounted() {
+    this.useGsapAnimationOpacity([".about__text"], ".about");
+    this.useGsapAnimationOpacity([".about__info_img"], ".about", false, 0.5);
+    this.useGsapAnimationOpacity(
+      [".about__calc_img"],
+      ".about__calc_image",
+      false,
+      0.7
+    );
+  },
+};
 </script>
 
 <style scoped>
@@ -76,9 +93,9 @@ export default {};
   margin: 0 auto;
   padding: 0 30px;
   display: grid;
-  grid-template-columns: repeat(2, 55.2% 45%);
+  grid-template-columns: repeat(3, 26.1% 29.1% 44.8%);
+  min-height: 600px;
 }
-
 .about__info_text {
   margin-bottom: 50px;
 }
@@ -88,6 +105,8 @@ export default {};
   line-height: 140%;
   color: var(--brown);
   text-transform: lowercase;
+  text-align: justify;
+  opacity: 0;
 }
 .about__info_block {
   display: flex;
@@ -104,6 +123,7 @@ export default {};
 }
 .about__info_img {
   transform: translateX(4px);
+  opacity: 0;
 }
 
 .about__calc_text {
@@ -117,5 +137,6 @@ export default {};
 .about__calc_img {
   width: 100%;
   transform: translateX(1px);
+  opacity: 0;
 }
 </style>

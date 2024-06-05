@@ -75,7 +75,7 @@
             >
               <NuxtLink
                 class="header__link"
-                :to="item.path"
+                :to="generateLink(item.path)"
                 :class="{
                   activeLi: changeHeader,
                   activeIndex: activeLiPath === item.path,
@@ -108,7 +108,7 @@ export default {
       navArr: [
         {
           name: "Каталог",
-          path: "/",
+          path: "/catalog",
         },
         {
           name: "О бренде",
@@ -136,6 +136,13 @@ export default {
     },
     cursorLeave() {
       this.useCursor = false;
+    },
+    generateLink(item) {
+      const currentQuery = this.$route.query;
+      if (item.includes("/catalog")) {
+        return { path: item, query: currentQuery };
+      }
+      return { path: item };
     },
     changeColor() {
       if (

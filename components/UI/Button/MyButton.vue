@@ -1,5 +1,12 @@
 <template>
-  <div class="button" @mousemove="updateParallax" @mouseleave="resetParallax">
+  <div
+    class="button"
+    @mousemove="updateParallax"
+    @mouseleave="resetParallax"
+    :class="{ activeBtn: active }"
+    onmousedown="return false"
+    onselectstart="return false"
+  >
     <button
       class="button__btn"
       :class="[variant, size, bigSize]"
@@ -25,6 +32,7 @@ export default {
     size: String,
     fontSize: String,
     bigSize: String,
+    active: Boolean,
   },
   data() {
     return {
@@ -92,6 +100,9 @@ export default {
 .green {
   background-color: #ede9df;
 }
+.main {
+  background-color: #ede9df;
+}
 .white {
   background-color: none;
   color: #fff;
@@ -119,6 +130,10 @@ export default {
 }
 .bigSize__circle {
   transition: transform 0.7s ease;
+}
+.activeBtn {
+  background-color: var(--brown);
+  color: white;
 }
 .green__circle {
   background-color: #868975;

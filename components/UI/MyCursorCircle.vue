@@ -72,8 +72,8 @@ export default {
 
 @media (hover: hover) and (pointer: fine) {
   .cursor__circle {
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
     margin-top: -50%;
     margin-left: -50%;
     border-radius: 50%;

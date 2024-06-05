@@ -56,7 +56,12 @@ export default {
       ".about__information_text"
     );
     this.useGsapAnimationOpacity([".about__text"], ".about__text");
-    this.useGsapAnimationOpacity([".about__photo_img"], ".about__photo_img");
+    this.useGsapAnimationOpacity(
+      [".about__photo_img"],
+      ".about__photo_img",
+      false,
+      0.5
+    );
   },
 };
 </script>
@@ -95,6 +100,7 @@ export default {
   font-size: 16px;
   font-weight: 400;
   color: var(--brown);
+  text-align: justify;
   margin-left: 20px;
 }
 .about__photo {
@@ -114,6 +120,7 @@ export default {
   margin-right: 69px;
   margin-top: 50px;
   text-transform: lowercase;
+  text-align: justify;
   opacity: 0;
 }
 .about__text_span {

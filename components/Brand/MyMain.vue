@@ -41,9 +41,12 @@ export default {
     gsap.registerPlugin(ScrollTrigger);
     setTimeout(() => {
       this.setAnimateParallax();
+      this.useGsapAnimationOpacity([".main__title"], ".main");
       this.useGsapAnimationOpacity(
-        [".main__text", ".main__number", ".main__title"],
-        ".main"
+        [".main__text", ".main__number"],
+        ".main",
+        false,
+        0.5
       );
     }, 10);
   },

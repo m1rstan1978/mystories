@@ -4,15 +4,13 @@
       <div class="facts__menu">
         <h2 class="facts__title">факты о нас</h2>
         <div class="facts__items">
-          <div
-            class="facts__item"
-            :class="['facts__item' + (idx + 1)]"
-            v-for="(item, idx) in arrFacts"
-            :key="item"
-          >
-            <div class="facts__number">{{ `( &nbsp;${idx + 1}&nbsp; )` }}</div>
+          <div class="facts__item" v-for="(item, idx) in arrFacts" :key="item">
+            <div class="facts__number" :class="['facts__number' + (idx + 1)]">
+              {{ `( &nbsp;${idx + 1}&nbsp; )` }}
+            </div>
             <p
               class="facts__text"
+              ref="factsText"
               :class="['facts__text' + (idx + 1)]"
               v-html="item.text"
             ></p>
@@ -70,21 +68,35 @@ export default {
 
     this.useGsapAnimationOpacity(
       [
-        ".facts__item1",
-        ".facts__item2",
-        ".facts__item3",
-        ".facts__item4",
+        ".facts__number1",
+        ".facts__number2",
+        ".facts__number3",
+        ".facts__number4",
         ".facts__title",
       ],
       ".facts__item"
     );
+    let delay = 0.5;
+    this.$refs.factsText.forEach((el, idx) => {
+      this.useGsapAnimationOpacity(
+        [".facts__text" + (idx + 1)],
+        ".facts__item",
+        false,
+        delay
+      );
+      delay += 0.2;
+    });
     this.useGsapAnimationOpacity(
       [".facts__images_img1"],
-      ".facts__images_img1"
+      ".facts__images_img1",
+      false,
+      0.7
     );
     this.useGsapAnimationOpacity(
       [".facts__images_img2"],
-      ".facts__images_img2"
+      ".facts__images_img2",
+      false,
+      0.7
     );
   },
 };
@@ -120,21 +132,21 @@ export default {
   margin-right: 110px;
   margin-bottom: 25px;
 }
-.facts__item {
-  opacity: 0;
-}
 .facts__number {
   font-weight: 500;
   font-size: 36px;
   color: var(--brown);
   margin-bottom: 78px;
   text-align: end;
+  opacity: 0;
 }
 .facts__text {
   font-weight: 300;
   font-size: 17px;
   color: var(--brown);
   text-transform: lowercase;
+  text-align: justify;
+  opacity: 0;
 }
 .facts__images {
   width: 100%;

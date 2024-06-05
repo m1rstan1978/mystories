@@ -17,7 +17,7 @@
           <UIButtonMyButton
             info="каталог"
             fontSize="24"
-            variant="green"
+            variant="main"
             cursor-class="animateCursor"
           />
         </div>
@@ -32,6 +32,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
+  data() {
+    return { useGsapAnimationOpacity: useGsapAnimationOpacity };
+  },
   methods: {
     setAnimateParallax() {
       gsap.to(".main__paralax", {
@@ -44,19 +47,14 @@ export default {
         scale: 1.1,
       });
     },
-    animationOpacity() {
-      gsap.to([".main__img", ".main__title", ".main__catalog"], {
-        opacity: 1,
-        duration: 1,
-      });
-    },
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger);
     setTimeout(() => {
       this.setAnimateParallax();
     }, 10);
-    this.animationOpacity();
+    this.useGsapAnimationOpacity([".main__title", ".main__catalog"], ".main");
+    this.useGsapAnimationOpacity([".main__img"], ".main", false, 0.5);
   },
 };
 </script>
@@ -111,6 +109,7 @@ export default {
   color: #ede9df;
   line-height: 120%;
   max-width: 350px;
+  text-align: justify;
   opacity: 0;
 }
 </style>
