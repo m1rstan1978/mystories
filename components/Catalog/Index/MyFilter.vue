@@ -122,7 +122,9 @@ export default {
   transition: all 0.4s ease;
   z-index: 30;
 }
-
+.filter__ready {
+  margin-bottom: 20px;
+}
 .filter__delete {
   height: 45px;
 }

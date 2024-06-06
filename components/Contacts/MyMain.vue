@@ -68,7 +68,7 @@ export default {
       ],
       ".main"
     );
-    this.useGsapAnimationOpacity([".main__image"], ".about", false, 0.5);
+    this.useGsapAnimationOpacity([".main__image"], ".main", false, 0.5);
   },
 };
 </script>
