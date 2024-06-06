@@ -95,6 +95,9 @@ export const useReplaceOrDeleteWordQuery = (
   };
 };
 
+export const useScrollCheckMain = () =>
+  useState("use_scroll_main", () => false);
+
 // export const useFilterFlout = () => {
 //   var a = document.querySelector("#aside1"),
 //     b = null,

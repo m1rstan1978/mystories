@@ -3,7 +3,7 @@
     <CatalogIndexMyMain />
     <UIMyNoise />
     <UIMyAnimationLine
-      duration="11"
+      duration="13"
       :arrAnimationLine="arrAnimationLine"
       :fixed="true"
     />
@@ -168,5 +168,3 @@ export default {
   watch: {},
 };
 </script>
-
-<style scoepd></style>

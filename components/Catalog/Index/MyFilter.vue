@@ -109,8 +109,6 @@ export default {
 };
 </script>
 
-<style></style>
-
 <style scoped>
 .filter {
   position: relative;
