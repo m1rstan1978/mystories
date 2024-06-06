@@ -4,7 +4,11 @@
       <div class="main__content">
         <div class="main__about">
           <div class="main__logo">
-            <img class="main__img" src="@/assets/images/Main/logo.svg" />
+            <img
+              class="main__img"
+              src="@/assets/images/Main/logo.svg"
+              alt="Логотип"
+            />
           </div>
           <div class="main__inf">
             <h1 class="main__title">
@@ -33,11 +37,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   data() {
-    return { useGsapAnimationOpacity: useGsapAnimationOpacity };
+    return {
+      useGsapAnimationOpacity: useGsapAnimationOpacity,
+      useScrollCheckMain: useScrollCheckMain,
+    };
   },
   methods: {
     setAnimateParallax() {
-      gsap.to(".main__paralax", {
+      this.useScrollCheckMain = gsap.to(".main__paralax", {
         scrollTrigger: {
           trigger: ".main",
           start: "50px top",
@@ -54,7 +61,7 @@ export default {
       this.setAnimateParallax();
     }, 10);
     this.useGsapAnimationOpacity([".main__title", ".main__catalog"], ".main");
-    this.useGsapAnimationOpacity([".main__img"], ".main", false, 0.5);
+    this.useGsapAnimationOpacity([".main__img"], ".main", false, 0.3);
   },
 };
 </script>
