@@ -19,7 +19,7 @@
             aria-label="перейти"
             info="перейти"
             fontSize="24"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
           />
         </div>
       </div>
@@ -114,7 +114,7 @@ export default {
 .summer__about_text {
   font-size: 17px;
   font-weight: 300;
-  line-height: 140%;
+  text-align: justify;
   color: var(--brown);
   opacity: 0;
 }

@@ -22,7 +22,7 @@
               <a
                 href="https://t.me/+79536886333"
                 class="main__about_link"
-                cursor-class="animateCursor"
+                data-cursor-class="animateCursor"
                 target="_blank"
                 >"написать в telegram"</a
               >

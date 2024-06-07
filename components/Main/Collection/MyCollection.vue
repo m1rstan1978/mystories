@@ -18,7 +18,7 @@
             aria-label="к коллекции"
             info="к коллекции"
             fontSize="24"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
           />
         </div>
       </div>

@@ -27,12 +27,15 @@ export default {
   z-index: 17;
 }
 .main__title {
-  max-width: 1920px;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  /* max-width: 1920px;
   margin: 0 auto;
   font-weight: 400;
   font-size: 36px;
   color: var(--brown);
-  padding: 0 30px 60px 30px;
+  padding: 0 30px 60px 30px; */
 }
 .main__content {
   max-width: 1920px;

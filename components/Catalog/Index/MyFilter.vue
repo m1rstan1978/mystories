@@ -1,6 +1,6 @@
 <template>
   <section class="filter">
-    <div class="filter__item">
+    <div class="filter__item" ref="filterItem" id="filter__item">
       <CatalogIndexFilterMyChapter @openMethod="checkResetBtn" />
       <CatalogIndexFilterMySize @openMethod="checkResetBtn" />
       <CatalogIndexFilterMyPrice
@@ -34,24 +34,16 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
 export default {
   data() {
     return {
       minVal: 2500,
       maxVal: 9237,
-      ofsset: 150,
       checkReset: false,
       useCheckPrice: useCheckPrice(),
       useFilterPrice: useFilterPrice(),
       useCheckReset: useCheckReset(),
-      distancyYCheck: false,
-      lastScrollTop: 0,
-      offset: 150,
+      useFilterFlout: useFilterFlout,
     };
   },
   methods: {
@@ -81,6 +73,11 @@ export default {
       }
       this.checkReset = false;
     },
+    async initScrollTrigger() {
+      await nextTick(() => {
+        this.useFilterFlout();
+      });
+    },
     sendFilter() {
       this.useCheckPrice = true;
     },
@@ -90,6 +87,7 @@ export default {
   },
   mounted() {
     this.checkResetBtn();
+    this.initScrollTrigger();
   },
   watch: {
     async useCheckReset(val) {
@@ -109,6 +107,17 @@ export default {
 };
 </script>
 
+<style>
+.sticky {
+  position: fixed;
+  z-index: 101;
+}
+.stop {
+  position: relative;
+  z-index: 101;
+}
+</style>
+
 <style scoped>
 .filter {
   position: relative;
@@ -123,7 +132,7 @@ export default {
   z-index: 30;
 }
 .filter__ready {
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 .filter__delete {
   height: 45px;

@@ -22,7 +22,7 @@
             info="каталог"
             fontSize="24"
             variant="main"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
           />
         </div>
       </div>

@@ -8,14 +8,14 @@
             <a
               href="https://wa.me/79536886333"
               class="about__info_link"
-              cursor-class="animateCursor"
+              data-cursor-class="animateCursor"
               target="_blank"
               >WhatsApp,
             </a>
             <a
               href="https://t.me/+79536886333"
               class="about__info_link"
-              cursor-class="animateCursor"
+              data-cursor-class="animateCursor"
               target="_blank"
               >Telegram.</a
             >
@@ -51,14 +51,14 @@
           <a
             href="https://wa.me/79536886333"
             class="about__calc_link"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
             target="_blank"
             >WhatsApp,
           </a>
           <a
             href="https://t.me/+79536886333"
             class="about__calc_link"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
             target="_blank"
             >Telegram.</a
           >
