@@ -44,8 +44,6 @@
                 class="main__center_photo"
                 src="@/assets/images/Delivery/delivery1.webp"
                 alt="Фотография"
-                onmousedown="return false"
-                onselectstart="return false"
               />
             </div>
           </div>

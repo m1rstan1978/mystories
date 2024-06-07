@@ -37,8 +37,6 @@
               class="about__info_image"
               src="@/assets/images/Delivery/delivery2.webp"
               alt="Фотография"
-              onmousedown="return false"
-              onselectstart="return false"
             />
           </div>
         </div>
@@ -68,8 +66,6 @@
             class="about__calc_image"
             src="@/assets/images/Delivery/delivery3.webp"
             alt="Фотография"
-            onmousedown="return false"
-            onselectstart="return false"
           />
         </div>
       </div>

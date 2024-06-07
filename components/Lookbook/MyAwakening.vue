@@ -29,8 +29,6 @@
             class="awakening__image_img"
             src="@/assets/images/Lookbook/awakening1.webp"
             alt="Фотография коллекции пробуждение"
-            onmousedown="return false"
-            onselectstart="return false"
           />
         </div>
       </div>
@@ -39,8 +37,6 @@
           class="awakening__photo_img"
           src="@/assets/images/Lookbook/awakening2.webp"
           alt="Фотография коллекции пробуждение"
-          onmousedown="return false"
-          onselectstart="return false"
         />
       </div>
     </div>

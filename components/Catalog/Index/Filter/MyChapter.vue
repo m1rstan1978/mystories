@@ -37,8 +37,6 @@
             aria-label="удалить"
             cursor-class="animateCursor"
             @click="deleteActiveWord(item)"
-            onmousedown="return false"
-            onselectstart="return false"
           >
             <svg
               width="11"

@@ -4,13 +4,7 @@
       <div class="addition__menu">
         <div class="addition__number">( &nbsp;2&nbsp; )</div>
         <div class="addition__image">
-          <img
-            class="addition__img"
-            onmousedown="return false"
-            onselectstart="return false"
-            src="@/assets/images/Main/additionF.webp"
-            alt="Фотография"
-          />
+          <img src="@/assets/images/Main/additionF.webp" alt="Фотография" />
         </div>
         <p class="addition__text">
           У нас собственное производство, что позволяет нам полностью с нуля

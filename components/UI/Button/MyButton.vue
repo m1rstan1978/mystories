@@ -4,8 +4,6 @@
     @mousemove="updateParallax"
     @mouseleave="resetParallax"
     :class="{ activeBtn: active }"
-    onmousedown="return false"
-    onselectstart="return false"
   >
     <button
       class="button__btn"

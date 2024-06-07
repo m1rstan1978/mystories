@@ -29,8 +29,6 @@
             class="collection__photo_img"
             src="@/assets/images/Main/collectionS.webp"
             alt="Фотография новой коллекции"
-            onmousedown="return false"
-            onselectstart="return false"
           />
         </div>
       </div>
