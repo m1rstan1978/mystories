@@ -7,9 +7,7 @@
     >
       <h2
         class="filter__chapter_title"
-        cursor-class="animateCursor"
-        onmousedown="return false"
-        onselectstart="return false"
+        data-cursor-class="animateCursor"
         @click="
           addChapter(
             item,
@@ -27,15 +25,12 @@
       <Transition name="fade-chapter">
         <div
           class="filter__chapter_icon"
-          v-if="
-            filterArrActiveQueryWord.includes(item.name.toLowerCase()) &&
-            item.name.toLowerCase() !== 'все'.toLowerCase()
-          "
+          v-if="filterArrActiveQueryWord.includes(item.name.toLowerCase())"
         >
           <button
             class="filter__chapter_btn"
             aria-label="удалить"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
             @click="deleteActiveWord(item)"
           >
             <svg
@@ -81,7 +76,12 @@ export default {
   methods: {
     async addChapter(item, checkActive) {
       if (checkActive) return;
-      const routeQuery = this.$route?.query?.chapter.split(";");
+      let routeQuery = null;
+      if (!this.$route?.query?.chapter) {
+        routeQuery = [];
+      } else {
+        routeQuery = this.$route?.query?.chapter.split(";");
+      }
       routeQuery.push(item.name.toLowerCase());
       const filterArr = routeQuery.filter((el) => el.length > 1);
       this.filterArrActiveQueryWord = filterArr;
@@ -123,14 +123,23 @@ export default {
       this.replaceRoute(this.filterArrActiveQueryWord);
     },
     initApp() {
+      if (!this.$route?.query?.chapter) {
+        this.filterArrActiveQueryWord = [];
+        return;
+      }
       const routeQuery = this.$route?.query?.chapter.split(";");
       this.filterArrActiveQueryWord = routeQuery;
+    },
+    async initCursor() {
+      await nextTick(() => {
+        this.useCursor = true;
+      });
     },
   },
   mounted() {
     this.initClose();
     this.initApp();
-    this.useCursor = true;
+    this.initCursor();
   },
   watch: {
     async useCheckReset(val) {
@@ -153,7 +162,6 @@ export default {
 .filter__chapter_title {
   font-size: 17px;
   font-weight: 300;
-  line-height: 140%;
   color: var(--brown);
   margin-bottom: 15px;
   text-transform: lowercase;

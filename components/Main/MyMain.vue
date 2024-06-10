@@ -4,11 +4,11 @@
       <div class="main__content">
         <div class="main__about">
           <div class="main__logo">
-            <img
+            <!-- <img
               class="main__img"
               src="@/assets/images/Main/logo.svg"
               alt="Логотип"
-            />
+            /> -->
           </div>
           <div class="main__inf">
             <h1 class="main__title">

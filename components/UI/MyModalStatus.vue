@@ -95,22 +95,118 @@
         </div>
       </div>
     </Transition>
+    <Transition>
+      <div class="modalInfo__border" v-if="useStatus === 'deleteProduct'" id="test">
+        <div class="modalInfo__card">
+          <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="34" cy="34" r="32" stroke="#AF9280" stroke-width="4" />
+            <path
+              d="M33.2351 51H33.2595M24 23.5496C25.3195 19.7383 28.9558 17 33.2351 17C38.628 17 43 21.3492 43 26.7143C43 30.7372 40.5419 34.1889 37.0385 35.6641C35.23 36.4257 34.3258 36.8065 34.0094 37.1006C33.6328 37.4508 33.5612 37.5581 33.384 38.0397C33.2351 38.444 33.2351 39.0675 33.2351 40.3143V43.7143"
+              stroke="#AF9280" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3 class="modalInfo__title">Вы уверены, что хотите удалить данный товар</h3>
+          <p class="modalInfo__description">
+            Если вы нажмете "принять" данный товар будет удален без возможности восстановления
+          </p>
+          <div class="modalInfo__position">
+            <UIMyButton class="modalInfo__btn" :info="'принять'" @click="deleteProduct"/>
+            <UIMyButton class="modalInfo__btn" :info="'отмена'" @click="offActive"/>
+          </div>
+        </div>
+      </div>
+    </Transition>
+    <Transition>
+      <div class="modalInfo__border" v-if="useStatus === 'addLine'" id="test">
+        <div class="modalInfo__card">
+          <h3 class="modalInfo__title">введите навание и значение</h3>
+          <div class="modalInfo__position">
+            <div class="modalInfo__info modalInfo__info_special">
+              <span class="modalInfo__prefix">название</span>
+              <input class="modalInfo__input" v-model="isSize" type="text" placeholder="пусто">
+            </div>
+            <div class="modalInfo__info">
+              <span class="modalInfo__prefix">значение</span>
+              <input class="modalInfo__input" v-model="isValue" type="number" placeholder="пусто">
+            </div>
+          </div>
+          <div class="modalInfo__position">
+            <UIMyButton class="modalInfo__btn" :info="'принять'" @click="addSize"/>
+            <UIMyButton class="modalInfo__btn" :info="'отмена'" @click="offActive"/>
+          </div>
+        </div>
+      </div>
+    </Transition>
+    <Transition>
+      <div class="modalInfo__border" v-if="useStatus === 'addDimension'" id="test">
+        <div class="modalInfo__card">
+          <h3 class="modalInfo__title">введите навание и значение</h3>
+          <div class="modalInfo__position">
+            <div class="modalInfo__info modalInfo__info_special">
+              <span class="modalInfo__prefix">название</span>
+              <input class="modalInfo__input" v-model="isSizeDimension" type="text" placeholder="пусто">
+            </div>
+            <div class="modalInfo__info">
+              <span class="modalInfo__prefix">значение</span>
+              <input class="modalInfo__input" v-model="isValueDimension" type="number" placeholder="пусто">
+            </div>
+          </div>
+          <div class="modalInfo__position">
+            <UIMyButton class="modalInfo__btn" :info="'принять'" @click="addDimension"/>
+            <UIMyButton class="modalInfo__btn" :info="'отмена'" @click="offActive"/>
+          </div>
+        </div>
+      </div>
+    </Transition>
+    <Transition>
+      <div class="modalInfo__border" v-if="useStatus === 'logout'" id="test">
+        <div class="modalInfo__card">
+          <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="34" cy="34" r="32" stroke="#AF9280" stroke-width="4" />
+            <path
+              d="M33.2351 51H33.2595M24 23.5496C25.3195 19.7383 28.9558 17 33.2351 17C38.628 17 43 21.3492 43 26.7143C43 30.7372 40.5419 34.1889 37.0385 35.6641C35.23 36.4257 34.3258 36.8065 34.0094 37.1006C33.6328 37.4508 33.5612 37.5581 33.384 38.0397C33.2351 38.444 33.2351 39.0675 33.2351 40.3143V43.7143"
+              stroke="#AF9280" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3 class="modalInfo__title">Вы уверены, что хотите выйти из учетной записи</h3>
+          <p class="modalInfo__description">
+            Если вы нажмете "принять" то вас выкинет из учеоной записи.
+          </p>
+          <div class="modalInfo__position">
+            <UIMyButton class="modalInfo__btn" :info="'принять'" @click="logout"/>
+            <UIMyButton class="modalInfo__btn" :info="'отмена'" @click="offActive"/>
+          </div>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
   
   <script>
   import PromoController from "@/http/controllers/PromoController";
   import CategoryController from "@/http/controllers/CategoryController";
+  import ProductController from "@/http/controllers/ProductController";
+  import AuthController from "@/http/controllers/AuthController";
 
   export default {
     data() {
       return {
         useStatus: useStatus(),
+        useProductId: useProductId(),
+        useLine: useLine(),
+        useMeasuremen: useMeasuremen(),
         usePromoReal: usePromoReal(),
         usePromoId: usePromoId(),
         usePromoNoReal: usePromoNoReal(),
         useCategoryAll: useCategoryAll(),
-        useCategoryId: useCategoryId()
+        useCategoryId: useCategoryId(),
+        useDimension: useDimension(),
+        useDimensionItem: useDimensionItem(),
+        useProducts: useProducts(),
+
+        isSize: '',
+        isValue: '',
+        isSizeDimension: '',
+        isValueDimension: '',
+        usePage: usePage(),
       };
     },
     methods: {
@@ -138,6 +234,42 @@
           await CategoryController.deleteCategoryOne(this.useCategoryId.id)
         }
         this.useStatus = null
+      },
+      addSize() {
+        const size = {
+          description: this.isSize,
+          value: this.isValue
+        }
+
+        this.useMeasuremen[this.useLine].array.push(size)
+        this.isSize = ''
+        this.isValue = ''
+        this.useStatus = null
+      },
+      addDimension() {
+        const size = {
+          description: this.isSizeDimension,
+          value: this.isValueDimension
+        }
+
+        this.useDimension[this.useDimensionItem].array.push(size)
+        this.isSizeDimension = ''
+        this.isValueDimension = ''
+        this.useStatus = null
+      },
+      async deleteProduct() {
+        this.useStatus = true
+        await ProductController.deleteProduct(this.useProductId)
+        const data = await ProductController.getProductAll(this.$route.query);
+        this.useProducts = data.products
+        this.usePage = data.totalPages
+        this.useStatus = null
+      },
+      async logout() {
+        this.useStatus = true
+        await AuthController.logout()
+        this.useStatus = null
+        this.$router.push('/')
       }
     },
   };
@@ -267,6 +399,24 @@
   }
   .modalInfo__btn:nth-child(2) {
     margin-left: 10px;
+  }
+  .modalInfo__input {
+    width: 100%;
+    font-size: 22px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--brown);
+  }
+  .modalInfo__prefix {
+    font-size: 18px;
+  }
+  .modalInfo__info {
+    margin-top: 15px;
+  }
+  .modalInfo__info_special {
+    margin-right: 10px;
+  }
+  .modalInfo__input::placeholder {
+    color: var(--brown);
   }
   @media(max-width: 660px) {
     .modalInfo__card {

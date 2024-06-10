@@ -45,7 +45,8 @@ export default {
       const queryRoutePrice = useRoute().query;
       const readyQueryChapter = this.useReplaceOrDeleteWordQuery(
         "chapter",
-        "все"
+        false,
+        true
       );
       const readyQueryPrice = this.useReplaceOrDeleteWordQuery(
         "min",

@@ -13,19 +13,19 @@
           aria-label="применить"
           info="применить"
           fontSize="18"
-          cursor-class="animateCursor"
+          data-cursor-class="animateCursor"
           @click="sendFilter"
         />
       </div>
       <Transition name="filter-fade">
-        <div class="filter__delete" v-if="checkReset">
+        <div class="filter__delete" :class="{ activeBtnDel: checkReset }">
           <UIButtonMyButton
             aria-label="сбросить"
             info="сбросить"
             variant="green"
             fontSize="18"
             @click="reset"
-            cursor-class="animateCursor"
+            data-cursor-class="animateCursor"
           />
         </div>
       </Transition>
@@ -53,6 +53,8 @@ export default {
         chapterArr = null;
       if (routeQuery.chapter) {
         chapterArr = routeQuery.chapter.split(";");
+      } else {
+        chapterArr = [];
       }
       if (routeQuery.size) {
         sizeArr = routeQuery.size.split(";");
@@ -62,7 +64,7 @@ export default {
       const parsePriceMax = parseInt(this.useFilterPrice.activeMaxVal);
 
       if (
-        chapterArr.length > 1 ||
+        chapterArr.length > 0 ||
         sizeArr === null ||
         Array.isArray(sizeArr) ||
         parsePriceMin !== this.minVal ||
@@ -97,7 +99,6 @@ export default {
           query: {
             min: "0",
             max: "35000",
-            chapter: "все",
           },
         });
         this.checkResetBtn();
@@ -122,12 +123,12 @@ export default {
 .filter {
   position: relative;
   margin-right: 60px;
-  max-width: 230px;
+  max-width: 250px;
 }
 .filter__item {
   position: relative;
   max-width: 100%;
-  max-width: 230px;
+  max-width: 250px;
   transition: all 0.4s ease;
   z-index: 30;
 }
@@ -136,6 +137,11 @@ export default {
 }
 .filter__delete {
   height: 45px;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.activeBtnDel {
+  opacity: 1;
 }
 .filter-fade-enter-from {
   opacity: 0;

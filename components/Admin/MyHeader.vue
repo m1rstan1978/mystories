@@ -8,21 +8,40 @@
             </div>
             <div class="header__icons">
                 <Transition>
-                    <input class="header__input" v-if="isActive" type="text" placeholder="название">
+                    <input class="header__input" v-if="isActive" type="text" placeholder="название" @keyup.enter="search"  v-model="isName">
                 </Transition>
                 <img class="header__loop" src="~/assets/images/Admin/loop.svg" alt="" @click="isActive = !isActive">
-                <img class="header__logout" src="~/assets/images/Admin/logout.svg" alt="">
+                <img class="header__logout" src="~/assets/images/Admin/logout.svg" @click="useStatus = 'logout'" alt="">
             </div>
         </div>
     </section>
 </template>
 
 <script>
+import ProductController from "@/http/controllers/ProductController";
+
 export default {
     data() {
         return {
-            isActive: false
+            isActive: false,
+            useStatus: useStatus(),
+            isName: "",
+            usePage: usePage(),
+            usePageActive: usePageActive(),
+            useProducts: useProducts()
         }
+    },
+    mounted() {
+        this.isName = this.$route.query.name
+    },
+    methods: {
+        async search() {
+            await this.$router.push({ path: "/admin", query: { ...this.$route.query, name: this.isName, page: 1 } })
+            const data = await ProductController.getProductAll(this.$route.query);
+            this.useProducts = data.products
+            this.usePage = data.totalPages
+            this.usePageActive = 1
+        },
     }
 }
 </script>
@@ -36,7 +55,7 @@ export default {
 }
 .header__container {
     padding: 0 20px;
-    max-width: 1380px;
+    max-width: 1880px;
     margin: 0 auto;
     display: flex;
     align-items: center;
